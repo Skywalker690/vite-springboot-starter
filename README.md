@@ -100,3 +100,18 @@ Feel free to fork this repo and contribute with PRs!
 ## 📄 License
 
 MIT License. Use freely and customize to your needs.
+
+--
+## 👨‍💻 Developed By
+
+* Created and maintained by Skywalker690.
+* Special thanks to the open source community for tools and inspiration.
+
+  <div align="center">
+  <br/><br/>
+  <p>
+    <a href="https://buymeacoffee.com/skywalker690">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="Buy Me A Coffee" />
+    </a>
+  </p>
+</div>
