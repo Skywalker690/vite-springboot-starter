@@ -1,10 +1,13 @@
 # 🧪 React + Spring Boot Boilerplate
 
-A modern full-stack boilerplate that integrates **React (Vite)** for the frontend and **Spring Boot** for the backend. Perfect for building fast, scalable web apps with a clear separation of concerns.
+This is a full-stack starter project using:
+
+* ⚛️ React (Vite) for the frontend
+* ☕ Spring Boot for the backend
 
 ---
 
-## 📁 Project Structure
+## 📁 Folder Structure
 
 ```
 React-SpringBoot-Boilerplate/
@@ -19,115 +22,78 @@ React-SpringBoot-Boilerplate/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 How to Run
 
-### ✅ Prerequisites
+### 1. Backend
 
-* **Java 17+**
-* **Node.js v18+**
-* **Maven**
-* (Optional) IDE: IntelliJ (for backend), VS Code (for frontend)
+```bash
+cd backend
+./mvnw spring-boot:run
+```
 
----
-
-## 🔙 Backend Setup (Spring Boot)
-
-1. Navigate to the backend folder:
-
-   ```bash
-   cd backend
-   ```
-
-2. Run the Spring Boot app:
-
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
-3. Backend runs at:
-   👉 `http://localhost:8080`
+Runs on: `http://localhost:8080`
 
 ---
 
-## 🌐 Frontend Setup (React + Vite)
+### 2. Frontend
 
-1. Navigate to the frontend folder:
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-   ```bash
-   cd frontend
-   ```
+Runs on: `http://localhost:3000`
 
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Run the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-4. Frontend runs at:
-   👉 `http://localhost:5173`
+If you want to use Vite default port (5173), update CORS and proxy accordingly.
 
 ---
 
-## 🔁 Connecting Frontend to Backend
+## ⚙️ CORS & API Setup
 
-Update your API base URL using `.env` in the `frontend/`:
+CORS is enabled in `CorsConfig.java` (backend).
+Make sure allowed origins match your frontend port (`http://localhost:3000` or `5173`).
+
+For smoother local development, add a proxy to `vite.config.js`:
+
+```js
+server: {
+  proxy: {
+    '/api': 'http://localhost:8080'
+  }
+}
+```
+
+---
+
+## 🔁 Environment Variables
+
+Use a `.env` file in the frontend to manage base URLs:
 
 ```env
 VITE_API_BASE_URL=http://localhost:8080
 ```
 
-In your frontend code, fetch data like this:
+Then fetch like this:
 
 ```js
-const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/hello`);
+fetch(`${import.meta.env.VITE_API_BASE_URL}/api/hello`)
 ```
 
 ---
 
-## 📦 Building for Production
+## 🛠 Optional Improvements
 
-1. Build frontend:
-
-   ```bash
-   npm run build
-   ```
-
-2. Copy the `dist/` output into `backend/src/main/resources/static/`
-
-3. Package the Spring Boot app:
-
-   ```bash
-   ./mvnw package
-   ```
-
-4. Run the bundled JAR:
-
-   ```bash
-   java -jar target/*.jar
-   ```
-
-   Now both frontend and backend are served from `http://localhost:8080`
-
----
-
-## 🛠️ Optional Improvements
-
-* Add Dockerfile and docker-compose for containerized development
-* Add authentication (JWT/session-based)
-* Use `.env` and `application.properties` effectively
+* Add Docker support
+* Setup authentication (JWT)
 * Integrate a database (MySQL/PostgreSQL)
+* Setup CI/CD pipeline
 
 ---
 
 ## 🤝 Contributing
 
-Feel free to fork this repo and contribute with PRs! Suggestions and improvements welcome.
+Feel free to fork this repo and contribute with PRs!
 
 ---
 
