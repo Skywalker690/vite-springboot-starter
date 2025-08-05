@@ -31,7 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
-.frontend/packages-lock.json
-.frontend/node_modules
 
 .env
